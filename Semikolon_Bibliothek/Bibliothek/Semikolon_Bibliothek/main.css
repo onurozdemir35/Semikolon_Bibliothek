@@ -1,0 +1,66 @@
+/* Grundlegendes Styling für den gesamten Body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Hellgrauer Hintergrund */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Füllt den gesamten Viewport */
+}
+/* Galerie-Container */
+.gallery {
+  display: grid; /* Verwende Grid-Layout */
+  grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+  gap: 20px; /* Abstand zwischen den Elementen */
+  width: 90%; /* Breite des Containers */
+  max-width: 1200px; /* Maximalbreite des Containers */
+  margin: 0 auto; /* Zentriert den Container */
+}
+/* Einzelnes Galerie-Element */
+.gallery-item {
+  background: #fff; /* Weißer Hintergrund für jedes Element */
+  padding: 10px; /* Padding für kleinere Elemente */
+  border: 1px solid #ddd; /* Dünner grauer Rahmen */
+  border-radius: 8px; /* Abgerundete Ecken */
+  text-align: center; /* Zentrierter Text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
+}
+/* hovering  */
+.gallery-item:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Schwebende Schatten */
+}
+/* Bilder in der Galerie */
+.gallery-item img {
+  max-width: 100%; /* Bild passt sich der Breite des Containers an */
+  height: auto; /* Höhe bleibt proportional */
+  border-radius: 8px; /* Abgerundete Ecken */
+  margin-bottom: 10px; /* Abstand unter dem Bild */
+}
+/* hovering  */
+.gallery-item:hover img {
+  transform: scale(1.1); /* Vergrößert das Bild */
+  filter: brightness(0.8); /* Abdunkelung des Bildes */
+}
+/* Favoriten-Button (Herz) */
+.favorite-btn {
+  background: none; /* Kein Hintergrund für den Button */
+  border: none; /* Kein Rand */
+  font-size: 24px; /* Größe des Herz-Icons */
+  cursor: pointer; /* Zeiger zeigt auf Klickbarkeit */
+  outline: none; /* Keine Umrandung bei Fokus */
+  transition: transform 0.2s ease-in-out; /* Weicher Zoom-Effekt */
+}
+/* Zoom-Effekt beim Hover */
+.favorite-btn:hover {
+  transform: scale(1.1); /* Vergrößerung um 10% */
+}
+/* Herz-Icon (grau transparent) */
+.favorite-btn .heart {
+  color: rgba(128, 128, 128, 0.5); /* Graues Herz mit Transparenz */
+}
+/* Gefülltes Herz (rot transparent) */
+.favorite-btn.favorited .heart {
+  color: rgba(255, 76, 76, 0.5); /* Rotes Herz mit Transparenz */
+}
