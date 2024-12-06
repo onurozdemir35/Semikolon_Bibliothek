@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Büchergalerie mit Favoriten</title>
+    <!-- Verknüpfen der CSS-Datei -->
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <!-- Galerie-Container für die Buchkarten -->
+    <!-- Galerie-Container -->
     <div class="gallery">
         <?php
-        // Verbindung zur Datenbank herstellen
+        // Verbindung zur Datenbank
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -23,16 +24,15 @@
             die("Verbindung fehlgeschlagen: " . $conn->connect_error);
         }
 
-        // Abfrage: Nur die ersten 8 Bücher aus der Tabelle "buecher" abrufen
+        // Abfrage: Die ersten 8 Bücher abrufen
         $sql = "SELECT BuchID, Titel, Beschreibung, Preis, Bild FROM buecher LIMIT 8";
         $result = $conn->query($sql);
 
-        // Wenn Ergebnisse vorhanden sind, dynamisch HTML für jedes Buch erstellen
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $bild = !empty($row['Bild']) ? 'bilder/' . htmlspecialchars($row['Bild']) : 'bilder/platzhalter.jpg';
                 echo '
-                <div class="gallery-item" data-id="' . $row['BuchID'] . '">
+                <div class="gallery-item" data-id="' . $row['BuchID'] . '" data-description="' . htmlspecialchars($row['Beschreibung']) . '" data-price="' . $row['Preis'] . '">
                     <h3>Buch ' . $row['BuchID'] . '</h3>
                     <img src="' . $bild . '" alt="' . htmlspecialchars($row['Titel']) . '">
                     <p>' . htmlspecialchars($row['Titel']) . '</p>
@@ -49,7 +49,7 @@
         ?>
     </div>
 
-    <!-- Modal für die Bildvergrößerung -->
+    <!-- Modal für das Vergrößern -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <img id="modal-image" src="" alt="">
@@ -62,6 +62,7 @@
         </div>
     </div>
 
+    <!-- Verknüpfen der JavaScript-Datei -->
     <script src="grid.js"></script>
 </body>
 </html>
