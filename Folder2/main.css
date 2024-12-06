@@ -1,0 +1,109 @@
+/* Grundlegendes Styling für den gesamten Body */
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4; /* Hellgrauer Hintergrund */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh; /* Füllt den gesamten Viewport */
+ }
+ 
+ /* Galerie-Container */
+ .gallery {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+   gap: 20px; /* Abstand zwischen den Elementen */
+   width: 90%;
+   max-width: 1200px;
+ }
+ 
+ /* Einzelnes Galerie-Element */
+ .gallery-item {
+   background: #fff; /* Weißer Hintergrund für jedes Element */
+   padding: 10px; /* Innenabstand */
+   border: 1px solid #ddd; /* Dünner grauer Rahmen */
+   border-radius: 8px; /* Abgerundete Ecken */
+   text-align: center; /* Zentrierter Text */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
+ }
+ 
+ /* Bilder in der Galerie */
+ .gallery-item img {
+   max-width: 100%; /* Bild passt sich der Breite des Containers an */
+   height: auto; /* Höhe bleibt proportional */
+   border-radius: 8px; /* Abgerundete Ecken */
+   margin-bottom: 10px; /* Abstand unter dem Bild */
+ }
+ 
+ /* Favoriten-Button */
+ .favorite-btn {
+   background: none; /* Kein Hintergrund für den Button */
+   border: none; /* Kein Rand */
+   font-size: 24px; /* Größe des Herz-Icons */
+   cursor: pointer; /* Zeiger zeigt auf Klickbarkeit */
+ }
+ 
+ /* Herz-Icon (Standard: grau transparent) */
+ .favorite-btn .heart {
+   color: rgba(128, 128, 128, 0.5);
+ }
+ 
+ /* Gefülltes Herz (rot transparent) */
+ .favorite-btn.favorited .heart {
+   color: rgba(255, 76, 76, 0.5);
+ }
+ 
+ /* Modal */
+ .modal {
+   display: none; /* Modal ist standardmäßig unsichtbar */
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.8); /* Halbtransparenter schwarzer Hintergrund */
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+ }
+ 
+ /* Inhalt des Modals */
+ .modal-content {
+   background: #fff;
+   border-radius: 8px;
+   padding: 20px;
+   text-align: center;
+   max-width: 600px;
+   width: 90%;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   position: relative;
+ }
+ 
+ /* Modal-Bild */
+ .modal img {
+   max-width: 100%; /* Bild passt sich der Breite des Modals an */
+   height: auto; /* Proportionen bleiben erhalten */
+   margin-bottom: 20px;
+ }
+ 
+ /* Schließen-Button im Modal */
+ #close-modal {
+   display: none; /* Unsichtbar, bis das Modal geöffnet wird */
+ }
+ 
+ .modal[style*="display: flex"] #close-modal {
+   display: inline-block;
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   background: red;
+   color: white;
+   border: none;
+   padding: 10px;
+   border-radius: 50%;
+   font-size: 16px;
+   cursor: pointer;
+ }
+ 
