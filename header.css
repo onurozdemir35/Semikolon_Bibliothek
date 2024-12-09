@@ -1,0 +1,146 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+/* Menu Styles */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #387478;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #007bff;
+}
+
+/* Icon Styles */
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-img {
+    max-height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.icon-img:hover {
+    transform: scale(1.2);
+}
+
+/* Search Bar Styles */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.search-bar {
+    width: 600px;
+
+    padding: 10px;
+    padding-right: 35px; /* Space for the search icon */
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+}
+
+.search-bar:focus {
+    border-color: #387478;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px; /* Adjusted for better alignment */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-icon {
+    max-height: 20px;
+    filter: invert(1); 
+    transition: transform 0.3s ease;
+}
+
+.search-button:hover .search-icon {
+    transform: scale(1.1);
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: auto; 
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .icons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        width: 100px;
+    }
+}
