@@ -1,0 +1,153 @@
+/* Basisstil für die gesamte Seite */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Standardschriftart */
+    overflow: hidden; /* Verhindert das Scrollen */
+    display: flex;
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+    height: 100vh; /* Nimmt die gesamte Höhe des Bildschirms ein */
+}
+
+/* Header als Hintergrund mit Weichzeichner */
+.background-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Nimmt die gesamte Breite ein */
+    height: 100%; /* Nimmt die gesamte Höhe ein */
+    z-index: 1; /* Liegt hinter dem Formular */
+    filter: blur(3px); /* Weichzeichner-Effekt */
+    overflow: hidden; /* Verhindert das Scrollen */
+}
+
+/* Container für das Formular */
+.form-container {
+    position: relative; /* Positioniert relativ zum Hintergrund */
+    z-index: 2; /* Liegt über dem Header */
+    background-color: rgba(255, 255, 255, 0.8); /* Weißer Hintergrund mit Transparenz */
+    border: 2px solid #387478; /* Teal-farbene Umrandung */
+    border-radius: 10px; /* Abgerundete Ecken */
+    max-width: 400px; /* Maximale Breite des Formulars */
+    width: 100%; /* Passt sich der Bildschirmbreite an */
+    padding: 20px; /* Abstand innerhalb des Containers */
+    margin: 10% auto; /* Zentriert den Container vertikal */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für 3D-Effekt */
+}
+
+/* Überschrift des Formulars */
+.form-title {
+    font-size: 24px; /* Schriftgröße */
+    font-weight: bold; /* Fettgedruckt */
+    margin-bottom: 20px; /* Abstand nach unten */
+    text-align: center; /* Zentrierter Text */
+}
+
+/* Unterschiedliche Farben für verschiedene Seiten */
+.register-page .form-title {
+    color: #FFCC5C; /* Gelbe Farbe für die Überschrift auf der Registrierungsseite */
+}
+
+.login-page .form-title {
+    color: #387478; /* Teal-Farbe für die Überschrift auf der Login-Seite */
+}
+
+/* Stil für Formularelemente */
+.form {
+    display: flex;
+    flex-direction: column; /* Vertikale Anordnung */
+    gap: 15px; /* Abstand zwischen den Elementen */
+}
+
+.form-label {
+    font-size: 14px; /* Schriftgröße */
+    font-weight: bold; /* Fettgedruckt */
+    color: #000000; /* Schwarze Farbe */
+}
+
+.form-input {
+    padding: 10px; /* Innenabstand */
+    font-size: 14px; /* Schriftgröße */
+    border: 1px solid #CCCCCC; /* Graue Umrandung */
+    border-radius: 5px; /* Abgerundete Ecken */
+    transition: border-color 0.3s ease; /* Sanfter Übergang bei Fokus */
+}
+
+.form-input:focus {
+    border-color: #387478; /* Teal-Farbe beim Fokus */
+    outline: none; /* Entfernt den Standard-Rahmen */
+}
+
+/* Stil für den Button */
+.form-button {
+    padding: 10px; /* Innenabstand */
+    font-size: 16px; /* Schriftgröße */
+    background-color: #FFCC5C; /* Gelber Hintergrund */
+    color: #000000; /* Schwarzer Text */
+    font-weight: bold; /* Fettgedruckt */
+    border: none; /* Keine Umrandung */
+    border-radius: 5px; /* Abgerundete Ecken */
+    cursor: pointer; /* Hand-Symbol beim Hovern */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Sanfter Übergang bei Hover */
+}
+
+.form-button:hover {
+    background-color: #387478; /* Teal-Hintergrund beim Hover */
+    color: #FFFFFF; /* Weißer Text */
+    transform: translateY(-3px); /* Hebt den Button leicht an */
+}
+
+/* Footer für das Formular */
+.form-footer {
+    text-align: center; /* Zentrierter Text */
+    margin-top: 20px; /* Abstand nach oben */
+    font-size: 14px; /* Schriftgröße */
+    color: #387478; /* Teal-Farbe */
+}
+
+.form-footer a {
+    text-decoration: none; /* Entfernt die Unterstreichung */
+    color: #FFCC5C; /* Gelbe Farbe für Links */
+    font-weight: bold; /* Fettgedruckt */
+}
+
+.form-footer a:hover {
+    color: #387478; /* Teal-Farbe beim Hover */
+    text-decoration: underline; /* Unterstreichung beim Hover */
+}
+
+/* Stile für Fehler- oder Erfolgsmeldungen */
+.form-message {
+    display: flex; /* Symbole und Text auf einer Zeile */
+    align-items: center; /* Vertikal zentrieren */
+    padding: 10px 15px; /* Innenabstand */
+    margin-bottom: 20px; /* Abstand nach unten */
+    border-radius: 5px; /* Abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße */
+    font-weight: 500; /* Mittlere Dicke */
+    line-height: 1.4; /* Zeilenhöhe */
+}
+
+.form-message--error {
+    background-color: #FFCC5C; /* Gelber Hintergrund für Fehler */
+    color: #000000; /* Schwarzer Text */
+    border: 1px solid #E2B04D; /* Dunklere Umrandung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+.form-message--success {
+    background-color: #387478; /* Teal-Hintergrund für Erfolg */
+    color: #FFFFFF; /* Weißer Text */
+    border: 1px solid #2F5F61; /* Dunklere Umrandung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+/* Unterschiedliche Stile für Registrierungs- und Login-Seiten */
+.register-page .form-container {
+    border-color: #FFCC5C; /* Gelbe Umrandung */
+}
+
+.login-page .form-container {
+    border-color: #387478; /* Teal-Umrandung */
+}
