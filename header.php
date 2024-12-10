@@ -44,7 +44,7 @@
       <!-- Dropdown Menu -->
       <div class="dropdown-menu">
           <a href="profile.php" class="dropdown-item">Profile</a>
-          <a href="signin.php" class="dropdown-item">Login / Anmelden</a>
+          <a href="registrierung.php" class="dropdown-item">Login / Anmelden</a>
       </div>
   </div>
   <script>
