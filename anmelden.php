@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fehler = "Ungültiges E-Mail-Format."; // Ungültige E-Mail-Fehlernachricht
     } else {
         // Datenbankverbindung aufbauen
-        $conn = new mysqli("localhost", "root", "", "test");
+        $conn = new mysqli("localhost", "root", "", "bibliothek");
 
         /* --------------------------------------------
          * Datenbankverbindung prüfen
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($passwort, $kunde['Passwort'])) {
                     $_SESSION['role'] = 'customer'; // Kunden-Rolle speichern
                     $_SESSION['user_id'] = $kunde['KundenID']; // Kunden-ID speichern
-                    header("Location: profile.php"); // Weiterleitung zur Kunden-Seite
+                    header("Location: header.php"); // Weiterleitung zur Kunden-Seite
                     exit;
                 } else {
                     $fehler = "Falsches Kunden-Passwort!";

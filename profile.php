@@ -1,5 +1,11 @@
 <?php
-session_start();
+
+/* ================================================
+   Sitzung starten und Benutzerüberprüfung
+   ================================================ */
+ 
+   // Sitzung starten
+  session_start();
 
 // Benutzer ist nicht eingeloggt
 if (!isset($_SESSION['user_id'])) {
@@ -7,9 +13,12 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Verbindung zur Datenbank
-$conn = new mysqli("localhost", "root", "", "test");
+/* ================================================
+   Verbindung zur Datenbank herstellen
+   ================================================ */
+$conn = new mysqli("localhost", "root", "", "bibliothek");
 
+// Überprüfen, ob die Verbindung erfolgreich ist
 if ($conn->connect_error) {
     die("Datenbankverbindungsfehler: " . $conn->connect_error);
 }
@@ -17,12 +26,17 @@ if ($conn->connect_error) {
 // Benutzer-ID aus der Session
 $user_id = $_SESSION['user_id'];
 
-// Benutzerdaten abrufen
+/* ================================================
+   Benutzerdaten abrufen
+   ================================================ */
+
+// SQL-Abfrage vorbereiten, um Benutzerdaten zu laden
 $stmt = $conn->prepare("SELECT Vorname, Nachname, Email, Passwort FROM kunden WHERE KundenID = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// Überprüfen, ob Benutzerdaten gefunden wurden
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 } else {
@@ -30,11 +44,16 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-// Fehlermeldungen und Erfolgsmeldungen
+/* ================================================
+   Fehler- und Erfolgsmeldungen initialisieren
+   ================================================ */
+
 $error = "";
 $success = "";
 
-// Daten aktualisieren
+/* ================================================
+   Profilaktualisierung
+   ================================================ */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstname = htmlspecialchars($_POST['firstname']);
     $lastname = htmlspecialchars($_POST['lastname']);
@@ -56,11 +75,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $update_stmt->bind_param("sssi", $firstname, $lastname, $email, $user_id);
         }
 
+        // Überprüfen, ob die Aktualisierung erfolgreich war
         if ($update_stmt->execute()) {
             $success = "Daten wurden erfolgreich aktualisiert!";
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $user = $result->fetch_assoc();
+            
+            header("refresh:2; url=header.php"); // Başarıyla güncelleme sonrası yönlendirme
+            exit;
         } else {
             $error = "Fehler beim Aktualisieren der Daten!";
         }
@@ -72,6 +92,11 @@ $stmt->close();
 $conn->close();
 ?>
 
+
+<!-- ================================================
+    HTML STARTEN
+   ================================================ -->
+
 <!DOCTYPE html>
 <html lang="de"> <!-- Sprache auf Deutsch -->
 <head>
@@ -80,14 +105,21 @@ $conn->close();
 </head>
 <body class="page profile-page"> <!-- Profil için özel sınıf -->
 
-    <!-- Flu header arkaplan -->
-    <div class="background-header">
+    <!-- ================================================
+         Hintergrund-Header
+         ================================================ -->
+   
+     <div class="background-header">
         <?php include "header.php"; ?>
     </div>
 
-    <!-- Profil form container -->
+    
+    <!-- ================================================
+         Profil-Formular
+         ================================================ -->
+
     <div class="form-container">
-        <h1 class="form-title">Profilinformationen</h1>
+        <h1 class="form-title">Willkommen, <?php echo htmlspecialchars($user['Vorname']); ?>!</h1>
 
         <!-- Erfolg und Fehler anzeigen -->
         <?php if ($error): ?>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Dez 2024 um 07:10
--- Server-Version: 10.4.32-MariaDB
--- PHP-Version: 8.2.12
+-- Generation Time: Dec 10, 2024 at 12:52 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `bibliothek`
+-- Database: `bibliothek`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
@@ -38,7 +38,7 @@ CREATE TABLE `admins` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `buecher`
+-- Table structure for table `buecher`
 --
 
 CREATE TABLE `buecher` (
@@ -51,7 +51,7 @@ CREATE TABLE `buecher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Daten für Tabelle `buecher`
+-- Dumping data for table `buecher`
 --
 
 INSERT INTO `buecher` (`BuchID`, `Titel`, `Beschreibung`, `Autor`, `Veroeffentlichungsdatum`, `Preis`) VALUES
@@ -84,20 +84,48 @@ INSERT INTO `buecher` (`BuchID`, `Titel`, `Beschreibung`, `Autor`, `Veroeffentli
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `kaeufe`
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kaeufe`
 --
 
 CREATE TABLE `kaeufe` (
   `KaufID` int(11) NOT NULL,
   `KundenID` int(11) DEFAULT NULL,
   `BuchID` int(11) DEFAULT NULL,
-  `Kaufdatum` date DEFAULT NULL
+  `Kaufdatum` date DEFAULT NULL,
+  `Betrag` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `kunden`
+-- Table structure for table `korb`
+--
+
+CREATE TABLE `korb` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1,
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kunden`
 --
 
 CREATE TABLE `kunden` (
@@ -110,24 +138,32 @@ CREATE TABLE `kunden` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `admins`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`AdminID`),
   ADD UNIQUE KEY `Email` (`Email`);
 
 --
--- Indizes für die Tabelle `buecher`
+-- Indexes for table `buecher`
 --
 ALTER TABLE `buecher`
   ADD PRIMARY KEY (`BuchID`);
 
 --
--- Indizes für die Tabelle `kaeufe`
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `book_id` (`book_id`);
+
+--
+-- Indexes for table `kaeufe`
 --
 ALTER TABLE `kaeufe`
   ADD PRIMARY KEY (`KaufID`),
@@ -135,50 +171,70 @@ ALTER TABLE `kaeufe`
   ADD KEY `BuchID` (`BuchID`);
 
 --
--- Indizes für die Tabelle `kunden`
+-- Indexes for table `korb`
+--
+ALTER TABLE `korb`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `book_id` (`book_id`);
+
+--
+-- Indexes for table `kunden`
 --
 ALTER TABLE `kunden`
   ADD PRIMARY KEY (`KundenID`),
   ADD UNIQUE KEY `Email` (`Email`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `admins`
+-- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
   MODIFY `AdminID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT für Tabelle `buecher`
+-- AUTO_INCREMENT for table `buecher`
 --
 ALTER TABLE `buecher`
   MODIFY `BuchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT für Tabelle `kaeufe`
+-- AUTO_INCREMENT for table `favorites`
+--
+ALTER TABLE `favorites`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kaeufe`
 --
 ALTER TABLE `kaeufe`
   MODIFY `KaufID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT für Tabelle `kunden`
+-- AUTO_INCREMENT for table `korb`
+--
+ALTER TABLE `korb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kunden`
 --
 ALTER TABLE `kunden`
   MODIFY `KundenID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `kaeufe`
+-- Constraints for table `korb`
 --
-ALTER TABLE `kaeufe`
-  ADD CONSTRAINT `kaeufe_ibfk_1` FOREIGN KEY (`KundenID`) REFERENCES `kunden` (`KundenID`),
-  ADD CONSTRAINT `kaeufe_ibfk_2` FOREIGN KEY (`BuchID`) REFERENCES `buecher` (`BuchID`);
+ALTER TABLE `korb`
+  ADD CONSTRAINT `korb_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `kunden` (`KundenID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `korb_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `buecher` (`BuchID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
