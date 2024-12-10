@@ -22,20 +22,51 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="bücher.php">Bücher</a></li>
                     <li><a href="kontakte.php">Kontakte</a></li>
-                    <li><a href="uber-uns.html">Über uns</a></li>
+                    <li><a href="uber_uns.html">Über uns</a></li>
                 </ul>
             </nav>
 
-            <!-- Icons -->
-            <div class="icons">
-                <a href="fav.php" class="icon"><img src="c:\Users\hshakademie5\Downloads\favorite_24dp_387478_FILL0_wght400_GRAD0_opsz24.png" alt="Favorite" class="icon-img"></a>
-                <a href="cart.php" class="icon"><img src="c:\Users\hshakademie5\Downloads\shopping_cart_24dp_387478_FILL0_wght400_GRAD0_opsz24.png" alt="Cart" class="icon-img"></a>
-                <a href="signin.php" class="icon"><img src="c:\Users\hshakademie5\Downloads\person_24dp_387478_FILL0_wght400_GRAD0_opsz24.png" alt="Sign In" class="icon-img"></a>
-                
-
-                
-            </div>
-        </div>
+            <!-- header Icons -->
+                 
+<div class="icons">
+    <a href="fav.php" class="icon">
+        <img src="c:\Users\hshakademie5\Downloads\favorite_24dp_387478_FILL0_wght400_GRAD0_opsz24.png" alt="Favorite" class="icon-img">
+    </a>
+    <a href="cart.php" class="icon">
+        <img src="c:\Users\hshakademie5\Downloads\shopping_cart_24dp_387478_FILL0_wght400_GRAD0_opsz24.png" alt="Cart" class="icon-img">
+    </a>
+  
+    <div class="dropdown">
+      <a href="#" class="icon">
+          <img src="c:\Users\hshakademie5\Downloads\person_24dp_387478_FILL0_wght400_GRAD0_opsz24.png" alt="Sign In" class="icon-img">
+      </a>
+  
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu">
+          <a href="profile.php" class="dropdown-item">Profile</a>
+          <a href="signin.php" class="dropdown-item">Login / Anmelden</a>
+      </div>
+  </div>
+  <script>
+    // Get the profile icon and the dropdown menu
+  const profileIcon = document.querySelector('.dropdown');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  
+  
+  profileIcon.addEventListener('click', function(event) {
+      event.stopPropagation(); 
+      dropdownMenu.classList.toggle('show-dropdown');
+  });
+  
+  
+  window.addEventListener('click', function(e) {
+      if (!profileIcon.contains(e.target)) {
+          dropdownMenu.classList.remove('show-dropdown');
+      }
+  });
+  
+  </script>
+  
     </header>
 
     <!-- Search Bar -->
