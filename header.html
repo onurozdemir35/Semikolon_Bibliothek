@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="bücher.php">Bücher</a></li>
-                    <li><a href="kontakte.php">Kontakte</a></li>
+                    <li><a href="kontakt.html">Kontakte</a></li>
                     <li><a href="uber_uns.html">Über uns</a></li>
                 </ul>
             </nav>
