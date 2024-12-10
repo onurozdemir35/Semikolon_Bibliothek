@@ -1,0 +1,311 @@
+/* ================================================
+   Basisstil für die gesamte Seite
+   ================================================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Standardschriftart */
+    overflow: hidden; /* Verhindert das Scrollen */
+    display: flex;
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+    flex-direction: column; 
+    height: 110vh; 
+    overflow-y: auto; 
+}
+
+/* ================================================
+   Header als Hintergrund mit Weichzeichner
+   ================================================ */
+.background-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Nimmt die gesamte Breite ein */
+    height: 100%; /* Nimmt die gesamte Höhe ein */
+    z-index: 1; /* Liegt hinter dem Formular */
+    filter: blur(3px); /* Weichzeichner-Effekt */
+    overflow: hidden; /* Verhindert das Scrollen */
+}
+
+/* ================================================
+   Formularcontainer
+   ================================================ */
+.form-container {
+    position: relative; /* Positioniert relativ zum Hintergrund */
+    z-index: 2; /* Liegt über dem Header */
+    background-color: rgba(255, 255, 255, 0.8); /* Weißer Hintergrund mit Transparenz */
+    border: 2px solid #387478; /* Teal-farbene Umrandung */
+    border-radius: 10px; /* Abgerundete Ecken */
+    max-width: 400px; /* Maximale Breite des Formulars */
+    width: 100%; /* Passt sich der Bildschirmbreite an */
+    padding: 20px; /* Abstand innerhalb des Containers */
+    margin: 10% auto; /* Zentriert den Container vertikal */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für 3D-Effekt */
+}
+
+/* ================================================
+   Formularüberschrift
+   ================================================ */
+.form-title {
+    font-size: 24px; /* Schriftgröße */
+    font-weight: bold; /* Fettgedruckt */
+    margin-bottom: 20px; /* Abstand nach unten */
+    text-align: center; /* Zentrierter Text */
+}
+
+/* Unterschiedliche Farben für verschiedene Seiten */
+.register-page .form-title {
+    color: #FFCC5C; /* Gelbe Farbe für die Überschrift auf der Registrierungsseite */
+}
+
+.login-page .form-title {
+    color: #387478; /* Teal-Farbe für die Überschrift auf der Login-Seite */
+}
+
+/* ================================================
+   Formularfelder und Labels
+   ================================================ */
+.form {
+    display: flex;
+    flex-direction: column; /* Vertikale Anordnung */
+    gap: 15px; /* Abstand zwischen den Elementen */
+}
+
+.form-label {
+    font-size: 14px; /* Schriftgröße */
+    font-weight: bold; /* Fettgedruckt */
+    color: #000000; /* Schwarze Farbe */
+}
+
+.form-input {
+    padding: 10px; /* Innenabstand */
+    font-size: 14px; /* Schriftgröße */
+    border: 1px solid #CCCCCC; /* Graue Umrandung */
+    border-radius: 5px; /* Abgerundete Ecken */
+    transition: border-color 0.3s ease; /* Sanfter Übergang bei Fokus */
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #387478; /* Teal renk */
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out; /* Hoş bir giriş efekti */
+}
+
+/* Fade-In-Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+input:focus, button:focus {
+    outline: 2px solid #FFCC5C; /* Odakta belirgin bir sarı çerçeve */
+    outline-offset: 2px;
+}
+
+
+.form-message {
+    animation: fadeIn 0.5s ease-out; /* Animasyon */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Unsichtbar starten */
+    }
+    to {
+        opacity: 1;  /* Sichtbar */
+    }
+}
+
+
+/* Checkbox Styles */
+.checkbox-label {
+    font-size: 14px; /* Yazı boyutunu ayarlar */
+    line-height: 1.5; /* Daha okunabilir hale getirir */
+    color: #000000; /* Yazı rengini siyah yapar */
+    margin-left: 10px;
+}
+
+/* Link stilini düzenle */
+.checkbox-label .form-link {
+    color: #387478; /* Teal renginde link */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    font-weight: bold; /* Yazı tipini vurgular */
+}
+
+.checkbox-label .form-link:hover {
+    text-decoration: underline; /* Hover durumunda alt çizgi */
+    color: #FFCC5C; /* Hover durumunda sarı renk */
+}
+
+
+
+/* ================================================
+   Schaltflächenstil
+   ================================================ */
+
+.form-button {
+    padding: 10px; /* Innenabstand */
+    font-size: 16px; /* Schriftgröße */
+    background-color: #FFCC5C; /* Gelber Hintergrund */
+    color: #000000; /* Schwarzer Text */
+    font-weight: bold; /* Fettgedruckt */
+    border: none; /* Keine Umrandung */
+    border-radius: 5px; /* Abgerundete Ecken */
+    cursor: pointer; /* Hand-Symbol beim Hovern */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Sanfter Übergang bei Hover */
+}
+
+.form-button:hover {
+    background-color: #387478; /* Teal-Hintergrund beim Hover */
+    color: #FFFFFF; /* Weißer Text */
+    transform: translateY(-3px); /* Hebt den Button leicht an */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================================================
+   Footer-Link-Stil
+   ================================================ */
+.form-footer {
+    text-align: center; /* Zentrierter Text */
+    margin-top: 20px; /* Abstand nach oben */
+    font-size: 14px; /* Schriftgröße */
+    color: #387478; /* Teal-Farbe */
+}
+
+.form-footer a {
+    text-decoration: none; /* Entfernt die Unterstreichung */
+    color: #FFCC5C; /* Gelbe Farbe für Links */
+    font-weight: bold; /* Fettgedruckt */
+}
+
+.form-footer a:hover {
+    color: #387478; /* Teal-Farbe beim Hover */
+    text-decoration: underline; /* Unterstreichung beim Hover */
+}
+
+
+/* ================================================
+   Fehler- oder Erfolgsmeldungen
+   ================================================ */
+
+.form-message {
+    display: flex; /* Symbole und Text auf einer Zeile */
+    align-items: center; /* Vertikal zentrieren */
+    padding: 10px 15px; /* Innenabstand */
+    margin-bottom: 20px; /* Abstand nach unten */
+    border-radius: 5px; /* Abgerundete Ecken */
+    font-size: 16px; /* Schriftgröße */
+    font-weight: 500; /* Mittlere Dicke */
+    line-height: 1.4; /* Zeilenhöhe */
+}
+
+.form-message--error {
+    background-color: #FFCC5C; /* Gelber Hintergrund für Fehler */
+    color: #000000; /* Schwarzer Text */
+    border: 1px solid #E2B04D; /* Dunklere Umrandung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+.form-message--success {
+    background-color: #387478; /* Teal-Hintergrund für Erfolg */
+    color: #FFFFFF; /* Weißer Text */
+    border: 1px solid #2F5F61; /* Dunklere Umrandung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+}
+
+/* Unterschiedliche Stile für Registrierungs- und Login-Seiten */
+.register-page .form-container {
+    border-color: #FFCC5C; /* Gelbe Umrandung */
+}
+
+.login-page .form-container {
+    border-color: #387478; /* Teal-Umrandung */
+}
+
+
+
+/* ================================================
+   Medienabfragen für Responsive Design
+   ================================================ */
+
+/*HANDY*/
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .form-container {
+        max-width: 100%; 
+        margin: 10px auto; 
+        padding: 15px; 
+        border-radius: 5px; 
+    }
+
+    .form-title {
+        font-size: 20px; 
+    }
+
+    .form-label {
+        font-size: 12px; 
+    }
+
+    .form-input {
+        font-size: 14px; 
+        padding: 8px;
+    }
+
+    .form-button {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+
+    .form-footer {
+        font-size: 12px;
+    }
+}
+
+/*TABLETTE*/
+@media (max-width: 1024px) {
+    body {
+        padding: 30px;
+    }
+
+    .form-container {
+        max-width: 80%; 
+        margin: 20px auto;
+    }
+
+    .form-title {
+        font-size: 22px; 
+    }
+
+    .form-label {
+        font-size: 14px; 
+    }
+
+    .form-input {
+        font-size: 14px;
+    }
+
+    .form-button {
+        font-size: 15px; 
+        padding: 12px;
+    }
+
+    .form-footer {
+        font-size: 14px;
+    }
+}
+

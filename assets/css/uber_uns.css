@@ -1,0 +1,164 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+
+  
+  .team {
+    background-color: #fff;
+    padding: 50px 20px;
+    margin: 20px 20px 20px 20px ;
+    text-align: center;
+    color: #387478;
+    
+  }
+  
+  .team h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #387478;
+    
+  }
+  
+  .team .grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .team-member {
+    background: #f4efef;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-10px);
+  }
+  
+  .team-memberpic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .team-member h4 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .team-member p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+
+
+
+ 
+ /*css for review*/
+.app {
+    max-width: 1000px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+  }
+  .app h1{
+    text-align: center;
+    color: #387478;
+    
+  }
+  
+  .rating {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .rating_average {
+    text-align: center;
+  }
+  
+  .rating_average h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #f39c12;
+  }
+  
+  .rating_average p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .star-outer {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .rating_average .star-outer::before{
+    content: "\2605\2605\2605\2605\2605 ";
+    color: #ddd;
+}
+  
+  .star-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    
+    
+  }
+  .rating_average .star-inner::before{
+    content: "\2605\2605\2605\2605\2605 ";
+    color: gold;
+    
+}
+  
+  .rating_progress {
+    flex: 1 1 0;
+  }
+  
+  .rating_progress-value {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .rating_progress-value p {
+    margin: 0 10px;
+    font-size: 0.9rem;
+    color: #000;
+  }
+  
+  .progress {
+    flex: 1;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .bar {
+    height: 100%;
+    background: gold;
+    border-radius: 5px;
+  }
+  
