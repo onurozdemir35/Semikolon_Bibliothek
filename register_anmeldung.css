@@ -1,4 +1,6 @@
-/* Basisstil für die gesamte Seite */
+/* ================================================
+   Basisstil für die gesamte Seite
+   ================================================ */
 body {
     margin: 0;
     padding: 0;
@@ -7,10 +9,14 @@ body {
     display: flex;
     justify-content: center; /* Zentriert horizontal */
     align-items: center; /* Zentriert vertikal */
-    height: 100vh; /* Nimmt die gesamte Höhe des Bildschirms ein */
+    flex-direction: column; 
+    height: 110vh; 
+    overflow-y: auto; 
 }
 
-/* Header als Hintergrund mit Weichzeichner */
+/* ================================================
+   Header als Hintergrund mit Weichzeichner
+   ================================================ */
 .background-header {
     position: absolute;
     top: 0;
@@ -22,7 +28,9 @@ body {
     overflow: hidden; /* Verhindert das Scrollen */
 }
 
-/* Container für das Formular */
+/* ================================================
+   Formularcontainer
+   ================================================ */
 .form-container {
     position: relative; /* Positioniert relativ zum Hintergrund */
     z-index: 2; /* Liegt über dem Header */
@@ -36,7 +44,9 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für 3D-Effekt */
 }
 
-/* Überschrift des Formulars */
+/* ================================================
+   Formularüberschrift
+   ================================================ */
 .form-title {
     font-size: 24px; /* Schriftgröße */
     font-weight: bold; /* Fettgedruckt */
@@ -53,7 +63,9 @@ body {
     color: #387478; /* Teal-Farbe für die Überschrift auf der Login-Seite */
 }
 
-/* Stil für Formularelemente */
+/* ================================================
+   Formularfelder und Labels
+   ================================================ */
 .form {
     display: flex;
     flex-direction: column; /* Vertikale Anordnung */
@@ -74,12 +86,74 @@ body {
     transition: border-color 0.3s ease; /* Sanfter Übergang bei Fokus */
 }
 
-.form-input:focus {
-    border-color: #387478; /* Teal-Farbe beim Fokus */
-    outline: none; /* Entfernt den Standard-Rahmen */
+.form-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #387478; /* Teal renk */
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out; /* Hoş bir giriş efekti */
 }
 
-/* Stil für den Button */
+/* Fade-In-Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+input:focus, button:focus {
+    outline: 2px solid #FFCC5C; /* Odakta belirgin bir sarı çerçeve */
+    outline-offset: 2px;
+}
+
+
+.form-message {
+    animation: fadeIn 0.5s ease-out; /* Animasyon */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Unsichtbar starten */
+    }
+    to {
+        opacity: 1;  /* Sichtbar */
+    }
+}
+
+
+/* Checkbox Styles */
+.checkbox-label {
+    font-size: 14px; /* Yazı boyutunu ayarlar */
+    line-height: 1.5; /* Daha okunabilir hale getirir */
+    color: #000000; /* Yazı rengini siyah yapar */
+    margin-left: 10px;
+}
+
+/* Link stilini düzenle */
+.checkbox-label .form-link {
+    color: #387478; /* Teal renginde link */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    font-weight: bold; /* Yazı tipini vurgular */
+}
+
+.checkbox-label .form-link:hover {
+    text-decoration: underline; /* Hover durumunda alt çizgi */
+    color: #FFCC5C; /* Hover durumunda sarı renk */
+}
+
+
+
+/* ================================================
+   Schaltflächenstil
+   ================================================ */
+
 .form-button {
     padding: 10px; /* Innenabstand */
     font-size: 16px; /* Schriftgröße */
@@ -96,9 +170,13 @@ body {
     background-color: #387478; /* Teal-Hintergrund beim Hover */
     color: #FFFFFF; /* Weißer Text */
     transform: translateY(-3px); /* Hebt den Button leicht an */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer für das Formular */
+
+/* ================================================
+   Footer-Link-Stil
+   ================================================ */
 .form-footer {
     text-align: center; /* Zentrierter Text */
     margin-top: 20px; /* Abstand nach oben */
@@ -117,7 +195,11 @@ body {
     text-decoration: underline; /* Unterstreichung beim Hover */
 }
 
-/* Stile für Fehler- oder Erfolgsmeldungen */
+
+/* ================================================
+   Fehler- oder Erfolgsmeldungen
+   ================================================ */
+
 .form-message {
     display: flex; /* Symbole und Text auf einer Zeile */
     align-items: center; /* Vertikal zentrieren */
@@ -151,3 +233,79 @@ body {
 .login-page .form-container {
     border-color: #387478; /* Teal-Umrandung */
 }
+
+
+
+/* ================================================
+   Medienabfragen für Responsive Design
+   ================================================ */
+
+/*HANDY*/
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .form-container {
+        max-width: 100%; 
+        margin: 10px auto; 
+        padding: 15px; 
+        border-radius: 5px; 
+    }
+
+    .form-title {
+        font-size: 20px; 
+    }
+
+    .form-label {
+        font-size: 12px; 
+    }
+
+    .form-input {
+        font-size: 14px; 
+        padding: 8px;
+    }
+
+    .form-button {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+
+    .form-footer {
+        font-size: 12px;
+    }
+}
+
+/*TABLETTE*/
+@media (max-width: 1024px) {
+    body {
+        padding: 30px;
+    }
+
+    .form-container {
+        max-width: 80%; 
+        margin: 20px auto;
+    }
+
+    .form-title {
+        font-size: 22px; 
+    }
+
+    .form-label {
+        font-size: 14px; 
+    }
+
+    .form-input {
+        font-size: 14px;
+    }
+
+    .form-button {
+        font-size: 15px; 
+        padding: 12px;
+    }
+
+    .form-footer {
+        font-size: 14px;
+    }
+}
+
