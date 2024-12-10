@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+body{
+    background-color: #E2F1E7;
+    margin: 0;
+    padding-top: 70px;
+}
+
+/***** HEADER *****/
+
+
+
+
+/** PRINCIPAL PHOTO **/
+
+.haupt_container img {
+    display: block;           /* Elimina espacios extra alrededor de la imagen */
+    width: 100%;              /* La imagen ocupará el 100% del ancho disponible */
+    height: auto;             /* Mantiene la proporción original de la imagen */
+    margin: 0;                /* Elimina márgenes */
+    padding: 0;               /* Elimina cualquier relleno */
+  }
+
+/** TITLE **/
+
+.gelb{
+    color: #387478;
+    text-align:center;
+}
+
+.gelb h1{
+    font-weight: bold;
+}
+
+/*** MAIN CONTAINER ***/
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Ajuste automático en dispositivos más pequeños */
+    gap: 20px; /* Espaciado uniforme entre columnas */
+    padding: 20px; /* Espaciado interno general */
+    align-items: stretch; /* Alinear contenido al alto más grande */
+    justify-content: space-between; /* Distribución uniforme */
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 20px auto; /* Centra el contenedor en la página */
+}
+
+.container1 {
+    flex: 1; /* Ocupa la mitad o más si hay espacio */
+    padding: 20px; /* Espaciado interno */
+    text-align: justify; /* Justificar texto */
+    font-size: 16px; /* Tamaño de fuente estándar */
+    color: #333; /* Color de texto */
+}
+
+.container2 {
+    flex: 1; /* Igual proporción al otro contenedor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container2 img {
+    max-width: 100%; /* Imagen escala al contenedor */
+    max-height: 300px; /* Altura máxima para evitar desbordes */
+    border-radius: 8px; /* Bordes redondeados */
+    object-fit: cover; /* Mantiene proporción de la imagen */
+}
+
+/**** BEWERTUNGEN  ****/
+
+
+
+
+
+
+
+/*****  FLEXBOX FILIALEN  *****/
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en varias filas */
+    justify-content: space-between; /* Distribución uniforme horizontal */
+    gap: 40px; /* Espaciado entre elementos */
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px; /* Espaciado interno alrededor del contenedor */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho/alto */
+}
+
+.flex-item {
+    text-align: center; /* Centrar texto dentro de cada tarjeta */
+    flex: 1 1 calc(30% - 40px); /* Ancho flexible, permitiendo tres tarjetas por fila */
+    min-width: 200px; /* Ancho mínimo de cada tarjeta */
+    max-width: 280px; /* Ancho máximo de cada tarjeta */
+    padding: 20px; /* Espaciado interno de cada tarjeta */
+    background-color: #FFCC5C; /* Fondo blanco para destacar */
+    border: 1px solid #ddd; /* Bordes ligeros */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s, box-shadow 0.2s; /* Efecto de hover */
+}
+
+.flex-item:hover {
+    transform: translateY(-5px); /* Levanta el elemento al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+.flex-item h3 {
+    font-weight: bold; /* Negrita para el título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    font-size: 18px; /* Tamaño del título */
+}
+
+.flex-item p {
+    margin: 0; /* Eliminar márgenes en los párrafos */
+    line-height: 1.5; /* Altura de línea para una mejor legibilidad */
+    font-size: 14px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+}
