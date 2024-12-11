@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($passwort, $admin['Passwort'])) {
                     $_SESSION['role'] = 'admin'; // Admin-Rolle speichern
                     $_SESSION['admin_id'] = $admin['AdminID']; // Admin-ID speichern
-                    header("Location: profile.php"); // Weiterleitung zur Admin-Seite
+                    header("Location: bücher.php"); // Weiterleitung zur Admin-Seite
                     exit;
                 } else {
                     $fehler = "Falsches Admin-Passwort!";
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $kunde = $kunden_result->fetch_assoc();
                 if (password_verify($passwort, $kunde['Passwort'])) {
                     $_SESSION['role'] = 'customer'; // Kunden-Rolle speichern
-                    $_SESSION['user_id'] = $kunde['KundenID']; // Kunden-ID speichern
+                    $_SESSION['user_id'] = $kunden['KundenID']; // Kunden-ID speichern
                     header("Location: header.php"); // Weiterleitung zur Kunden-Seite
                     exit;
                 } else {
