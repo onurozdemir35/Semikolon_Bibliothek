@@ -1,7 +1,6 @@
 <?php
 // Datenbankverbindung und gemeinsame Teile einbinden
 include 'includes/Verbindung.php';
-include 'includes/header.php';
 ?>
 
 <!DOCTYPE html>
