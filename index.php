@@ -9,7 +9,7 @@ include 'includes/Verbindung.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admins Dashboard</title>
-    <link rel="stylesheet" href="assets/css/styles_Dashboard.css">
+    <link rel="stylesheet" href="assets/css/stylesDashboard.css">
 </head>
 <body>
     <div class="container">
