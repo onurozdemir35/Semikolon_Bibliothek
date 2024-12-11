@@ -9,7 +9,7 @@ include 'includes/Verbindung.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admins Dashboard</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles_Dashboard.css">
 </head>
 <body>
     <div class="container">
@@ -117,8 +117,8 @@ include 'includes/Verbindung.php';
         <!-- Button um nach oben zu gehen -->
         <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">Zur Start</button>
     </div>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main_Dashboard.js"></script>
+    <script src="assets/js/main_Dashboard.js"></script>
 </body>
 </html>
 
