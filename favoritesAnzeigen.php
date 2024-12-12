@@ -24,8 +24,8 @@ if ($conn->connect_error) {
 $user_id = $_SESSION['user_id']; // ID des Benutzers aus der Session
 
 // SQL-Abfrage vorbereiten, um die Favoriten des Benutzers zu holen
-$sql = "SELECT buecher.id, buecher.title, buecher.author FROM favorites 
-        JOIN buecher ON favorites.book_id = buecher.id 
+$sql = "SELECT buecher.BuchID, buecher.Titel, buecher.Autor FROM favorites 
+        JOIN buecher ON favorites.book_id = buecher.BuchID 
         WHERE favorites.user_id = ?";
 $stmt = $conn->prepare($sql); // SQL-Statement vorbereiten, um SQL-Injection zu vermeiden
 $stmt->bind_param("i", $user_id); // Parameter an das Statement binden ('i' steht für Integer-Wert)
@@ -38,12 +38,11 @@ echo "<ul>";
 
 // Ergebnisse durchlaufen und in einer Liste anzeigen
 while ($row = $result->fetch_assoc()) {
-    echo "<li>" . htmlspecialchars($row['title']) . " von " . htmlspecialchars($row['author']) . "</li>";
+    echo "<li>" . htmlspecialchars($row['Titel']) . " von " . htmlspecialchars($row['Autor']) . "</li>";
 }
 
 echo "</ul>";
 
-// Verbindung schließen
-$stmt->close();
+// Verbindung zur Datenbank schließen
 $conn->close();
 ?>
