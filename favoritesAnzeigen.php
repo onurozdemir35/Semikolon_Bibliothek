@@ -40,12 +40,15 @@ echo "<div class='row'>";
 
 // Ergebnisse durchlaufen und in Karten anzeigen
 while ($row = $result->fetch_assoc()) {
+    // Nur den ersten Absatz der Beschreibung anzeigen
+    $beschreibung = explode("\n", $row['Beschreibung'])[0];
+
     echo "<div class='col-md-4'>";
     echo "<div class='card mb-4'>";
     echo "<img src='" . htmlspecialchars($row['Bild']) . "' class='card-img-top' alt='" . htmlspecialchars($row['Titel']) . "'>";
     echo "<div class='card-body'>";
     echo "<h5 class='card-title'>" . htmlspecialchars($row['Titel']) . "</h5>";
-    echo "<p class='card-text'>" . htmlspecialchars($row['Beschreibung']) . "</p>";
+    echo "<p class='card-text'>" . htmlspecialchars($beschreibung) . "</p>";
     echo "<p class='card-text'><strong>Preis: </strong>" . htmlspecialchars($row['Preis']) . "€</p>";
     echo "<p class='card-text'><strong>Autor: </strong>" . htmlspecialchars($row['Autor']) . "</p>";
     echo "<a href='removeFavorite.php?book_id=" . $row['BuchID'] . "' class='btn btn-danger'>Aus Favoriten entfernen</a> ";
