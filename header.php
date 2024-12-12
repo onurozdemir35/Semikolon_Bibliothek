@@ -32,7 +32,7 @@
     <a href="korb.php" class="icon">
         <img src="bilder_2/shopping-cart.png" alt="Favorite" class="icon-img">
     </a>
-    <a href="get_favorite_status.php" class="icon">
+    <a href="favoritesAnzeigen.php" class="icon">
         <img src="bilder_2/favorites_icon.png" alt="Cart" class="icon-img">
     </a>
   

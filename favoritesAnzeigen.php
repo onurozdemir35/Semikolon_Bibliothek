@@ -24,8 +24,8 @@ if ($conn->connect_error) {
 $user_id = $_SESSION['user_id']; // ID des Benutzers aus der Session
 
 // SQL-Abfrage vorbereiten, um die Favoriten des Benutzers zu holen
-$sql = "SELECT books.id, books.title, books.author FROM favorites 
-        JOIN books ON favorites.book_id = books.id 
+$sql = "SELECT buecher.id, buecher.title, buecher.author FROM favorites 
+        JOIN buecher ON favorites.book_id = buecher.id 
         WHERE favorites.user_id = ?";
 $stmt = $conn->prepare($sql); // SQL-Statement vorbereiten, um SQL-Injection zu vermeiden
 $stmt->bind_param("i", $user_id); // Parameter an das Statement binden ('i' steht für Integer-Wert)
