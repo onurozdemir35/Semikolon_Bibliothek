@@ -1,4 +1,5 @@
 <?php
+include 'header.php'; // Einbindung des Headers
 // Verbindung zur Datenbank herstellen
 $servername = "localhost"; // Name des Servers
 $username = "root"; // Benutzername für die Datenbank
@@ -150,6 +151,7 @@ if ($conn->connect_error) {
     <script src="bücher_grid.js"></script>
 
     <?php
+    include 'footer.php'; // Einbindung des Footers     
     // Verbindung schließen
     $conn->close();
     ?>
