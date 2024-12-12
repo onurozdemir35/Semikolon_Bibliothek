@@ -57,7 +57,7 @@
         <img src="bilder_2/geschenk.jpg" alt="gutschein">
     </div>
     <div class="gutschein-text">
-        <h2>Geschenkgutschein</h2>
+        <h2>Cambio</h2>
         <p>Genau das Richtige, um Freude zu verschenken: Die gesamte Auswahl aus Büchern, Hörbüchern und vielem mehr!</p>
         <button class="gutschein-button">Verschenken</button>
     </div>
