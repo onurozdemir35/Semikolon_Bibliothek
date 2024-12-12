@@ -1,4 +1,5 @@
 <?php
+include 'header.php'; // Header einbinden
 session_start(); // Sitzung starten
 
 // Überprüfen, ob der Benutzer eingeloggt ist
@@ -43,6 +44,7 @@ while ($row = $result->fetch_assoc()) {
 
 echo "</ul>";
 
+include 'footer.php'; // Footer einbinden
 // Verbindung zur Datenbank schließen
 $conn->close();
 ?>
