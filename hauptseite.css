@@ -1,0 +1,302 @@
+.header {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+/* Menu Styles */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #387478;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #007bff;
+}
+
+/* Icon Styles */
+
+.icon {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+
+.dropdown {
+    position: relative; /* Parent relative olmalı ki, dropdown-menu buna göre konumlandırılsın */
+    z-index: 10; /* Daha düşük bir z-index */
+}
+
+
+.dropdown-menu {
+    display: none; 
+    position: absolute; /* Mutlak konumlandırma */
+    top: 100%; /* Dropdown menüyü aşağı taşır */
+    right: 0; /* Menü sağa hizalanır */
+    background-color: rgb(114, 122, 123);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    border-radius: 5px;
+}
+
+
+
+.dropdown-item {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #ddd;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+  
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-img {
+    max-height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.icon-img:hover {
+    transform: scale(1.2);
+}
+
+/* Search Bar Styles */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.search-bar {
+    width: 600px;
+
+    padding: 10px;
+    padding-right: 35px; /* Space for the search icon */
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+}
+
+.search-bar:focus {
+    border-color: #387478;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px; /* Adjusted for better alignment */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-icon {
+    max-height: 20px;
+    filter: invert(1); 
+    transition: transform 0.3s ease;
+}
+
+.search-button:hover .search-icon {
+    transform: scale(1.1);
+}
+
+/* Swiper Styles */
+.swiper {
+    position: relative;
+    width: 100%;
+    height: auto; 
+    z-index: 1;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+}
+
+ /* --------------------------------------------
+      * Gutschein
+      * --------------------------------------------
+    */
+
+    .gutschein-container {
+        display: flex; /* Flex düzenini etkinleştir */
+        align-items: center; /* Dikey hizalama */
+        justify-content: space-between; /* Yatayda dağıtma */
+        background-color: #f9c74f; /* Arka plan rengi */
+        padding: 20px; /* İç boşluk */
+        border-radius: 10px; /* Köşeleri yuvarlat */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+        max-width: auto; /* Maksimum genişlik */
+        margin: 10px auto; /* Ortala */
+    }
+    
+    .gutschein-image {
+        flex: 1; /* Görsel alanı esnek */
+        max-width: 50%; /* Görsel genişliği %50 */
+    }
+    
+    .gutschein-image img {
+        max-width: 100%; /* Görseli kapsayıcıya sığdır */
+        height: auto; /* Yüksekliği oranla ayarla */
+        border-radius: 10px; /* Görsel köşeleri yuvarlat */
+    }
+    
+    .gutschein-text {
+        flex: 1; /* Metin alanı esnek */
+        padding: 0 20px; /* Görsel ve metin arasında boşluk */
+    }
+    
+    .gutschein-text h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333; /* Koyu gri */
+        margin-bottom: 10px; /* Başlık ile metin arasında boşluk */
+    }
+    
+    .gutschein-text p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555; /* Orta tonlu gri */
+        margin-bottom: 15px; /* Metin ile buton arasında boşluk */
+    }
+    
+    .gutschein-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff; /* Beyaz yazı rengi */
+        background-color: #333; /* Koyu renk arka plan */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .gutschein-button:hover {
+        background-color: #555; /* Hover'da daha açık renk */
+    }
+
+    
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .icons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        width: 100px;
+    }
+    .alle_buecher {
+    padding: 100px;
+    padding-bottom: 50px;
+    }
+
+    h1 a {
+        color: #f9c74f;
+        text-decoration: none;
+    }
+
+    p .alle_buecher{
+        text-align: justify;
+    }
+
+    h1 a:hover{
+        color:#333;
+    }
+}
+/* Stil für den Abschnitt "alle_buecher" */
+.alle_buecher {
+    padding: 100px; /* Innenabstand oben */
+    padding-bottom: 50px; /* Innenabstand unten */
+    
+}
+
+/* Stil für Links in h1 */
+h1 a {
+    color: #f9c74f; /* Gelbe Farbe */
+    text-decoration: none; /* Entfernt die Unterstreichung */
+}
+
+/* Stil für den Hover-Effekt von Links in h1 */
+h1 a:hover {
+    color: #333; /* Dunklere Farbe beim Hover */
+}
+
+/* Textausrichtung für p innerhalb von .alle_buecher */
+p.alle_buecher {
+    text-align: justify; /* Text wird ausgerichtet */
+}
